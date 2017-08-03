@@ -1,24 +1,216 @@
-// bower:scss
-// endbower
-body {
-  background: #fafafa;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  color: #333;
-  background: #555;
+//VARIABLES
+$trans: rgba(0, 0, 0, .5);
+$ultra-trans: rgba(0, 0, 0, .2);
+$facebook-blue-trans: rgba(59, 89, 152, .8);
+$google-red-trans: rgba(211, 72, 54, .8);
+$twitter-blue-trans: rgba(0, 172, 237, .8);
+$facebook-blue: rgb(59, 89, 152);
+$google-red: rgb(211, 72, 54);
+$twitter-blue: rgb(0, 172, 237);
+$white: #fff;
+$white-trans: rgba(255, 255, 255, .8);
+$charcoal: #555;
+$gray: #ddd;
+
+$stdfonts: 'YU Gothic';
+$titlefonts: 'Dosis', sans-serif;
+
+//MIXIN
+@mixin fonts($family, $size, $color, $weight) {
+  color: $color;
+  font-family: $family;
+  font-size: $size;
+  font-weight: $weight;
 }
 
-.hero-unit {
-  margin: 50px auto 0 auto;
-  width: 300px;
-  font-size: 18px;
-  font-weight: 200;
-  line-height: 30px;
-  background-color: #eee;
-  border-radius: 6px;
-  padding: 60px;
+//GENERAL
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: $google-red-trans;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  padding-top: 100px;
+  transition: .3s ease-in-out;
+}
+
+//HEADER
+header {
+  background: $white-trans;
+  box-shadow: 0 0 20px $trans;
+  height: 100px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+
   h1 {
-    font-size: 60px;
-    line-height: 1;
-    letter-spacing: -1px;
+    @include fonts($titlefonts, 60px, $google-red-trans, 800);
+    line-height: 100px;
+    margin: 0;
+    text-align: center;
+    transition: .3s ease-in-out;
   }
 }
+
+//MAIN
+.content-wrapper {
+  background: $white;
+  box-shadow: 3px -5px 10px $ultra-trans;
+  left: 50%;
+  max-height: 50vh;
+  max-width: 1000px;
+  min-height: 600px;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 80vw;
+}
+
+.content-block {
+  height: 100%;
+  padding: 10px;
+  position: absolute;
+  width: 100%;
+}
+
+.content-tabs {
+  left: 10px;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: -50px;
+
+  .active {
+    background: $white;
+    z-index: 11 !important;
+  }
+
+  :hover {
+    background: $white;
+  }
+}
+
+.content-tab {
+  @include fonts($stdfonts, 18px, $charcoal, 600);
+  background: $gray;
+  border-radius: 10px 10px 0 0;
+  box-shadow: 3px -5px 10px $ultra-trans;
+  cursor: pointer;
+  display: inline-block;
+  height: 50px;
+  line-height: 50px;
+  list-style: none;
+  position: absolute;
+  text-align: center;
+  transition: background .3s ease-in-out;
+  width: 120px;
+  z-index: 3;
+}
+
+@for $i from 2 through 3 {
+  .content-tabs {
+    :nth-child(#{$i}) {
+      left: #{($i - 1) * 110px};
+      z-index: #{3 - $i + 1};
+    }
+  }
+}
+
+.content-frame {
+  border: 1px solid $gray;
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
+}
+
+.content-main {
+  height: 100%;
+  overflow-y: auto;
+  position: relative;
+  width: 100%;
+
+  .active {
+    opacity: 1;
+  }
+}
+
+.content-instruction {
+  @include fonts($stdfonts, 15px, $charcoal, 600);
+  height: 100%;
+  opacity: 0;
+  padding: 10px;
+  position: absolute;
+  transition: .3s ease-in-out;
+  width: 100%;
+
+  h3 {
+    margin: 0;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    list-style: none;
+  }
+}
+
+//SOCIAL MEDIA BACKGROUND
+.social-media-bg {
+  bottom: calc(60vw - (60vw + 25vw));
+  color: $white;
+  font-size: 60vw;
+  position: absolute;
+  right: 0;
+  z-index: -1;
+
+  span {
+    opacity: 0;
+    transition: .3s ease-in-out;
+  }
+
+  .active {
+    opacity: .8;
+  }
+}
+
+//FOOTER
+footer {
+  @include fonts($stdfonts, 15px, $charcoal, 800);
+  background: $white-trans;
+  bottom: 0;
+  box-shadow: 0 0 20px $trans;
+  height: 100px;
+  padding: 35px 0;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+
+  i {
+    display: inline-flex;
+    font-style: normal;
+  }
+
+  a {
+    color: $charcoal;
+    display: inline-flex;
+    text-decoration: none;
+
+    :hover {
+      border-bottom: 1px dotted $charcoal;
+    }
+  }
+
+  .gt-github {
+    border-bottom: 0 !important;
+    font-size: 25px;
+    margin-right: 5px;
+  }
+}
+

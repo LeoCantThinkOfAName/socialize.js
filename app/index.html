@@ -15,6 +15,9 @@
     <!-- endbuild -->
 
     <!-- build:css styles/main.css -->
+    <link href="https://fonts.googleapis.com/css?family=Dosis:800" rel="stylesheet">
+    <link href="https://file.myfontastic.com/xewUgUQhnyhZiUvkAxqcSH/icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
     
@@ -22,21 +25,68 @@
     <script src="/bower_components/modernizr/modernizr.js"></script>
     <!-- endbuild -->
   </head>
-  <body>
+  <body data-bg='["rgba(211, 72, 54, .8)", "rgba(59, 89, 152, .8)", "rgba(0, 172, 237, .8)"]'>
     <!--[if IE]>
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
+    <header>
+      <h1>Socialize.</h1>
+    </header>
     
-    <div class="hero-unit">
-      <h1></h1>
-      <p>You now have</p>
-      <ul>
-        <li><a href="javascript:;" data-sm="facebook">Facebook</a></li>
-        <li><a href="" data-sm="twitter">Twitter</a></li>
-        <li><a href="">Empty</a></li>
-        <li><a href="" data-sm="facebook">Facebook</a></li>
-      </ul>
+    <main>
+      <div class="content-wrapper">
+        <div class="content-block">
+          <ul class="content-tabs">
+            <li class="content-tab active">Google</li>
+            <li class="content-tab">Facebook</li>
+            <li class="content-tab">Twitter</li>
+          </ul>
+
+          <div class="content-frame">
+            <div class="content-main">
+              <div class="content-instruction active">
+                <h3>General Instruction:</h3>
+                <ul>
+                  <li>haha</li>
+                  <li>hehe</li>
+                  <li>meow</li>
+                  <li>woof</li>
+                </ul>
+              </div>
+
+              <div class="content-instruction">
+                
+              </div>
+
+              <div class="content-instruction">
+                xd
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+        <h1></h1>
+        <!-- <ul>
+          <li><a href="javascript:;" data-sm="facebook">Facebook</a></li>
+          <li><a href="" data-sm="twitter">Twitter</a></li>
+          <li><a href="">Empty</a></li>
+          <li><a href="" data-sm="facebook">Facebook</a></li>
+        </ul> -->
+    </main>
+
+    <div class="social-media-bg">
+      <span data-icon="a" class="active"></span>
     </div>
+    <div class="social-media-bg">
+      <span data-icon="b"></span>
+    </div>
+    <div class="social-media-bg">
+      <span data-icon="c"></span>
+    </div>
+
+    <footer>
+      <a href="https://github.com/LeoCantThinkOfAName" target="_blank"><i class="gt-github" title="Octocat!!!"></i><i title="Hello">LCToAN.</i></a>
+    </footer>
     
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
@@ -56,6 +106,7 @@
     <!-- endbuild -->
     
     <!-- build:js scripts/main.js -->
+    <script src="scripts/socialize.js"></script>
     <script src="scripts/main.js"></script>
     <!-- endbuild -->
   </body>
